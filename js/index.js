@@ -3,8 +3,9 @@
       * Add evento de click
       */
      function onAdd() {
-           var $ul, li, $li, $label, $div, livro;
+           var $ul, li, $li, $label, $div, livro,autor;
            livro = $('.js-novo-livro').val();
+           autor = $('.js-novo-autor').val();
 
            // valida se “livro” está vazio
            if (livro === '') {
@@ -25,8 +26,17 @@
                   .click(toggleRemovido)
                   .appendTo($label);
 
-           $label.append(livro);
-           $('.js-novo-livro').val('');
+          $('<big>')
+                  .appendTo($label)
+                  .append(livro);
+
+          $label.append(" - ");
+
+          $('<small>')
+                  .appendTo($label)
+                  .append(autor);
+
+          $('.js-novo-livro, .js-novo-autor').val('');
      }
 
      /**
